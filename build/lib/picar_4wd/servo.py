@@ -29,6 +29,3 @@ class Servo():
         pwr =  High_level_time / 20000
         value = int(pwr*self.PERIOD)
         self.pin.pulse_width(value)
-        
-def main():
-    return 0

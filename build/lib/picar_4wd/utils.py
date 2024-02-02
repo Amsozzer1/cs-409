@@ -4,7 +4,7 @@ import subprocess
 import os
 import time
 
-user_name = "amsozzer"
+user_name = os.getlogin()
 
 def soft_reset():
     from .pin import Pin

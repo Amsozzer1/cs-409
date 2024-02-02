@@ -155,7 +155,11 @@ try:
     start_server_2 = websockets.serve(main_logic_2, ip, 8766)
     print('Start!')
     tasks = [main_func(),start_server_1,start_server_2]
-    asyncio.get_event_loop().run_until_complete(asyncio.wait(tasks))
+    
+    asyncio.get_event_loop().run_until_complete(asyncio.gather(
+        websockets.serve(main_logic_1, ip, 8765),
+        websockets.serve(main_logic_2, ip, 8766),
+        main_func()))
     asyncio.get_event_loop().run_forever()
  
 finally:
